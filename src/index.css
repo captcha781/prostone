@@ -5,10 +5,12 @@
 @tailwind utilities;
 @tailwind variants;
 
-
-.toggle-transition{
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition:all 0.5s ease-in-out;
-    -o-transition:all 0.5s ease-in-out;
-    transition:all 0.5s ease-in-out;
+@layer components {
+  .menuitem-success {
+    @apply px-3 py-1.5 rounded-lg mt-3 text-sm flex justify-start items-center w-full xl:w-3/4 mx-auto bg-indigo-500 text-white ;
   }
+
+  .menuitem-failure {
+    @apply duration-300 px-3 py-1.5 rounded-lg mt-3 text-sm flex justify-start items-center w-full xl:w-3/4 mx-auto hover:bg-indigo-200  ;
+  }
+}

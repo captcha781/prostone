@@ -1,16 +1,20 @@
 import {Link } from "react-router-dom"
+import { setHeader } from "../../features/data"
+import { useDispatch } from "react-redux/es/exports"
 
-const Item = ({setItem, item, icon, placeholder, target}) => {
+const Item = ({setItem, item, icon, placeholder, target, delay}) => {
+    const dispatch = useDispatch()
     return (
         <Link to={target} onClick={() => {
             setItem(target)
+            dispatch(setHeader(placeholder))
         }}>
-            {item === target ? <div className="px-3 py-1.5 rounded-lg mt-3 text-sm flex justify-start items-center w-full xl:w-3/4 mx-auto bg-indigo-500 text-white">
+            {item === target ? <div className="menuitem-success" data-aos={"fade-right"} data-aos-delay={delay}>
             <i className={`bi text-sm [font-size:1rem] mx-1 ${icon}`}></i>
                 <p className="ml-2 md:ml-1 text-xs">
                     {placeholder}
                 </p>
-            </div> : <div className="duration-300 px-3 py-1.5 rounded-lg mt-3 text-sm flex justify-start items-center w-full xl:w-3/4 mx-auto hover:bg-indigo-200  ">
+            </div> : <div className="menuitem-failure" data-aos={"fade-right"} data-aos-delay={delay}>
             <i className={`bi text-sm [font-size:1rem] mx-1 ${icon}`}></i>
                 <p className="ml-2 md:ml-1 text-xs">
                     {placeholder}
