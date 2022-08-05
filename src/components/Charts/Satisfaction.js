@@ -1,45 +1,49 @@
 import { Line } from "react-chartjs-2";
+
 // eslint-disable-next-line
 import { Chart } from "chart.js/auto";
+
+let satisfaction = {
+    lastMonth: "3,504",
+    thisMonth: "5,719"
+}
+
 let timeperiod = [
-  "sep",
-  "oct",
-  "nov",
-  "dec",
-  "jan",
-  "feb",
-  "mar",
-  "apr",
-  "may",
-  "jun",
-  "jul",
-  "aug",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+  "Sun",
+ 
 ];
-let views = [670, 890, 765, 983, 789, 776, 846, 972, 1098, 924, 854, 746];
-let views_buy = [980, 1090, 875, 983, 629, 900, 1078, 836, 1076, 1253, 854, 797];
+let views = [230,215,220,250,220,250,235];
+let views_buy = [270,250,256,272,257,280,300];
+
+
+
 let state = {
   labels: timeperiod,
 
   datasets: [
     {
-      fill: false,
-      lineTension: 0.5,
+      fill:true,
+      lineTension: 0.2,
       borderWidth: 3,
       data: views,
-      borderColor: "rgb(251, 113, 133)",
-      backgroundColor: "rgba(251, 113, 133,0.3)",
-      label: "Visitors",
-
-
+      borderColor: "rgba(37, 99, 235,1)",
+      backgroundColor: "rgba(37, 99, 235,0.2)",
+      label: `last month - ${satisfaction.lastMonth}`,
     },
     {
       fill: true,
-      lineTension: 0.5,
+      lineTension: 0.2,
       borderWidth: 3,
       data: views_buy,
       borderColor: "rgb(74, 222, 128)",
-      backgroundColor: "rgba(74, 222, 128,0.3)",
-      label: "Buyers"
+      backgroundColor: "rgba(74, 222, 128,0.2)",
+      label: `this month - ${satisfaction.thisMonth}`
     }
   ],
 };
@@ -68,7 +72,7 @@ const screener = () => {
   }
 }
 
-const Insights = () => {
+const Satisfaction = () => {
   return (
     <div className="w-full xl:w-10/12 h-full overflow-hidden" data-aos-delay={"300"}>
       <Line
@@ -81,19 +85,17 @@ const Insights = () => {
               position: "bottom",
               labels: {
                 boxWidth: 10,
-                font: "Outfit"
-              }
+                font: "Outfit",
+              },
             }
           },
           elements: {
-
             point: {
-              radius: 0,
+              radius: 2,
             },
             arc: {
-              borderWidth: 2,
+              borderWidth: 1,
             },
-
           },
           font: {
             size: "8px",
@@ -103,13 +105,19 @@ const Insights = () => {
           scales: {
             xAxis: {
               grid: {
-                display: false,
+                display: false
               },
+              ticks:{
+                display:false
+              }
             },
             yAxis: {
               grid: {
                 display: false,
               },
+              ticks:{
+                display:false
+              }
             },
           },
 
@@ -120,4 +128,4 @@ const Insights = () => {
     </div>
   );
 };
-export default Insights;
+export default Satisfaction;

@@ -19,6 +19,7 @@ const Menu = () => {
     useEffect(() => {
         setItem(window.location.pathname)
         dispatch(setHeader(loc))
+        // eslint-disable-next-line
     }, [])
 
 
