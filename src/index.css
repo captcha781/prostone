@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer components {
+  .menuitem-success {
+    @apply px-3 py-1.5 rounded-lg mt-3 text-sm flex justify-start items-center w-full xl:w-3/4 mx-auto bg-indigo-500 text-white ;
+  }
+
+  .menuitem-failure {
+    @apply duration-300 px-3 py-1.5 rounded-lg mt-3 text-sm flex justify-start items-center w-full xl:w-3/4 mx-auto hover:bg-indigo-200  ;
+  }
+}
+
+::-webkit-scrollbar{
+  width: 0.75em;
+  border:0;
+  border-radius: 15px;
+  margin-right: 25px;
+  height: 300px;
+}
+::-webkit-scrollbar-track{
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+  background-color: lightgray;
+  margin-right: 25px;
+  border: 0;
+  border-radius: 15px;
+}
